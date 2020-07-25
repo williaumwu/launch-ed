@@ -1,0 +1,9 @@
+infrastructure:
+  vpc:
+    stack_name: williaumwu:::gcloud_vpc
+    arguments:
+      vpc_name: vpc-project1
+      gcloud_project: project1-288907
+    inputvars:
+        - reference: gcloud-project1
+          orchestration: true
