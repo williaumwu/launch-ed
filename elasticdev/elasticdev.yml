@@ -6,5 +6,8 @@ infrastructure:
     arguments:
       vpc_name: project1
       gcloud_project: project1-282607
+    inputvars:
+        - reference: gcloud-project1
+          orchestration: true
 destroy:
    stack_name: elasticdev:::ed_core::callback_delete
