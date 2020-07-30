@@ -1,7 +1,7 @@
 global_arguments:
    gcloud_region: us-west1
 infrastructure:
-  vpc:
+  ssh_key:
     stack_name: elasticdev:::gcloud_ssh_upload
     arguments:
       name: ssh-key-upload
