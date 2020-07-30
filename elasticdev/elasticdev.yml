@@ -2,9 +2,9 @@ global_arguments:
    gcloud_region: us-west1
 infrastructure:
   vpc:
-    stack_name: elasticdev:::gcloud_simple_vpc
+    stack_name: elasticdev:::gcloud_ssh_upload
     arguments:
-      vpc_name: project1
+      name: ssh-key-upload
       gcloud_project: project1-282607
     inputvars:
         - reference: gcloud-project1
