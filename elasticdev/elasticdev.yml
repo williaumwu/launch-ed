@@ -1,7 +1,7 @@
 global_arguments:
    gcloud_region: us-west1
    gcloud_project: project1-282607
-   vpc_name: vpc-auto-subnets
+   vpc_name: vpc-auto-subnets-2
 infrastructure:
   vpc:
     stack_name: elasticdev:::gcloud_simple_vpc
