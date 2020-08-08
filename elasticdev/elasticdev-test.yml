@@ -4,9 +4,18 @@ global_arguments:
    gcloud_project: project1-282607
    vpc_name: vpc-auto-subnets
 infrastructure:
+  vpc:
+    stack_name: elasticdev:::gcloud_simple_vpc
+    arguments:
+      auto_create_subnetworks: true
+      global_address_block: true
+    inputvars:
+        - reference: gcloud-project1
+          orchestration: true
   cloudsql:
     stack_name: elasticdev:::gcloud_cloudsql
     dependencies: 
+        - infrastructure::vpc
     arguments:
       name: cloudsql-postgres-9
       database_version: POSTGRES_11
