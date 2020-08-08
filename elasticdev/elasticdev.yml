@@ -20,7 +20,6 @@ infrastructure:
   cloud_sql_proxy:
     stack_name: elasticdev:::gcloud_sql_proxy
     dependencies: 
-        - infrastructure::vpc
         - infrastructure::cloudsql
     arguments:
       name: cloudsql-postgres-8
