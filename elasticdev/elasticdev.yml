@@ -3,7 +3,7 @@ global_arguments:
    gcloud_zone: us-west1-a
    gcloud_project: project1-282607
    vpc_name: vpc-auto-subnets
-   name: cloudsql-postgres-22
+   name: cloudsql-postgres-30
 infrastructure:
   cloudsql:
     stack_name: elasticdev:::gcloud_cloudsql
