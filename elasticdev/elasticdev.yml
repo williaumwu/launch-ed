@@ -2,12 +2,22 @@ global_arguments:
    gcloud_region: us-west1
    gcloud_zone: us-west1-a
    gcloud_project: project1-282607
-   vpc_name: vpc-auto-subnets
-   name: cloudsql-postgres-31
+   vpc_name: vpc-cloudsql
+   name: cloudsql-postgres-32
 infrastructure:
+infrastructure:
+  vpc:
+    stack_name: elasticdev:::gcloud_simple_vpc
+    arguments:
+      auto_create_subnetworks: true
+      global_address_block: true
+    inputvars:
+        - reference: gcloud-project1
+          orchestration: true
   cloudsql:
     stack_name: elasticdev:::gcloud_cloudsql
     dependencies: 
+        - infrastructure::vpc
     arguments:
       database_version: POSTGRES_11
       database_tier: db-f1-micro
@@ -20,6 +30,7 @@ infrastructure:
   cloud_sql_proxy:
     stack_name: elasticdev:::gcloud_sql_proxy
     dependencies: 
+        - infrastructure::vpc
         - infrastructure::cloudsql
     inputvars:
         - reference: gcloud-project1
