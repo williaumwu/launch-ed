@@ -5,7 +5,6 @@ global_arguments:
    vpc_name: vpc-cloudsql-908
    name: cloudsql-postgres-908
 infrastructure:
-infrastructure:
   vpc:
     stack_name: elasticdev:::gcloud_simple_vpc
     arguments:
@@ -14,26 +13,26 @@ infrastructure:
     inputvars:
         - reference: gcloud-project1
           orchestration: true
-  cloudsql:
-    stack_name: elasticdev:::gcloud_cloudsql
-    dependencies: 
-        - infrastructure::vpc
-    arguments:
-      database_version: POSTGRES_11
-      database_tier: db-f1-micro
-      availability_type: REGIONAL
-      disk_size: 10
-      ipv4_enabled: false
-    inputvars:
-        - reference: gcloud-project1
-          orchestration: true
-  cloud_sql_proxy:
-    stack_name: elasticdev:::gcloud_sql_proxy
-    dependencies: 
-        - infrastructure::vpc
-        - infrastructure::cloudsql
-    inputvars:
-        - reference: gcloud-project1
-          orchestration: true
+#  cloudsql:
+#    stack_name: elasticdev:::gcloud_cloudsql
+#    dependencies: 
+#        - infrastructure::vpc
+#    arguments:
+#      database_version: POSTGRES_11
+#      database_tier: db-f1-micro
+#      availability_type: REGIONAL
+#      disk_size: 10
+#      ipv4_enabled: false
+#    inputvars:
+#        - reference: gcloud-project1
+#          orchestration: true
+#  cloud_sql_proxy:
+#    stack_name: elasticdev:::gcloud_sql_proxy
+#    dependencies: 
+#        - infrastructure::vpc
+#        - infrastructure::cloudsql
+#    inputvars:
+#        - reference: gcloud-project1
+#          orchestration: true
 destroy:
    stack_name: elasticdev:::ed_core::callback_delete
