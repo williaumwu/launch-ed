@@ -2,8 +2,8 @@ global_arguments:
    gcloud_region: us-west1
    gcloud_zone: us-west1-a
    gcloud_project: project1-282607
-   vpc_name: vpc-cloudsql-905
-   name: cloudsql-postgres-905
+   vpc_name: vpc-cloudsql-907
+   name: cloudsql-postgres-907
 infrastructure:
 infrastructure:
   vpc:
